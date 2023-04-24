@@ -5,14 +5,13 @@
 
 body {
   display: flex;
-  max-width: 375px;
+  max-width: 100%;
   flex-direction: column;
   margin: auto;
   height: 1312px;
 }
 
-p,
-li {
+p {
   font-family: "Roboto";
 }
 
@@ -34,6 +33,7 @@ header .return {
   margin: 0px 65px 0px 23px;
   position: absolute;
   transform: translateX(-130px);
+  text-decoration: none;
 }
 header .logo img {
   width: 162px;
@@ -59,16 +59,16 @@ header .logo img {
 }
 
 .btn-explorer {
-  background: linear-gradient(200.64deg, #9356dc -5.2%, #ff79da 110.74%);
+  border: none;
   width: 218px;
   height: 50px;
-  border: none;
-  border-radius: 25px;
+  margin-bottom: 57px;
   color: #ffffff;
-  font-family: "Roboto";
-  font-weight: 500;
   font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(-10deg, #9356dc -5.2%, #ff79da 110.74%);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
   cursor: pointer;
   transition: cubic-bezier(0.35, 0.08, 0, 1.5) all 400ms;
 }
@@ -99,6 +99,7 @@ header .logo img {
   font-size: 18px;
   text-align: center;
   margin-bottom: 27px;
+  white-space: initial;
 }
 
 .fonctionnement {
@@ -107,14 +108,18 @@ header .logo img {
 .fonctionnement h2 {
   margin: 48px 0px 26px 0px;
 }
-.fonctionnement ul {
+.fonctionnement .bloc-containt-fonc {
+  width: 100%;
+}
+.fonctionnement .bloc-fonctionnement {
   display: flex;
   width: 100%;
-  gap: 24px;
   flex-direction: column;
+  gap: 24px;
   margin-bottom: 68px;
+  font-family: "roboto";
 }
-.fonctionnement li {
+.fonctionnement .description-fonctionnement {
   font-weight: 500;
   font-size: 16px;
 }
@@ -124,17 +129,27 @@ header .logo img {
   gap: 25px;
   background-color: #f6f6f6;
   height: 72px;
+  position: relative;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
 }
-.fonctionnement div {
-  transform: translateX(-12px);
+.fonctionnement .selecteur-pos-color:hover {
+  background: #f5edff;
+  transform: scale(1.01);
+}
+.fonctionnement .selecteur-pos-color:hover i {
+  color: #9356DC;
+}
+.fonctionnement .number {
+  transform: translateX(-10px);
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: 24px;
   max-width: 24px;
+  left: 0;
+  position: absolute;
   height: 24px;
   border-radius: 50%;
   background-color: #9356dc;
@@ -153,7 +168,9 @@ header .logo img {
   display: flex;
   flex-direction: column;
 }
-.fonctionnement h2, .fonctionnement h3, .fonctionnement span,
+.fonctionnement h2,
+.fonctionnement h3,
+.fonctionnement span,
 .restaurants h2,
 .restaurants h3,
 .restaurants span {
@@ -164,7 +181,7 @@ header .logo img {
 .restaurants {
   background-color: #f6f6f6;
 }
-.restaurants section {
+.restaurants .les-menus {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -172,8 +189,7 @@ header .logo img {
   margin-bottom: 120px;
 }
 .restaurants .nouveaux-restaurant {
-  display: flex;
-  justify-content: end;
+  position: relative;
 }
 .restaurants span {
   background-color: #99E2D0;
@@ -186,13 +202,16 @@ header .logo img {
   display: flex;
   align-items: center;
   justify-content: center;
+  right: 0;
 }
 .restaurants h2 {
   margin: 54px 0px 26px 20px;
 }
 .restaurants article {
   display: flex;
-  width: 335px;
+  min-width: 325px;
+  max-width: 490px;
+  width: 59%;
   flex-direction: column;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -205,10 +224,10 @@ header .logo img {
   width: 100%;
   height: 194px;
   border-radius: 15px;
+  object-fit: cover;
 }
 .restaurants i {
   font-size: 21px;
-  margin: 24px 24px 33px 0px;
 }
 .restaurants p {
   font-weight: 300;
@@ -245,7 +264,7 @@ footer h3 {
   margin-bottom: 16px;
   color: white;
 }
-footer section {
+footer .bas-page {
   display: flex;
   flex-direction: column;
   color: #ffffff;
@@ -303,7 +322,9 @@ footer .fa-handshake {
   font-weight: 400;
   font-size: 28px;
 }
-.presentation-menu h2, .presentation-menu .menus h3, .presentation-menu .menus p {
+.presentation-menu h2,
+.presentation-menu .menus h3,
+.presentation-menu .menus p {
   font-family: "roboto";
 }
 .presentation-menu h2 {
@@ -321,36 +342,84 @@ footer .fa-handshake {
   flex-direction: column;
   gap: 12px;
 }
-.menus article {
-  display: flex;
-  flex-direction: column;
+.menus .card {
+  position: relative;
   background-color: #FFFFFF;
   border-radius: 25px;
   padding: 17px;
   margin: 0px 13px;
   box-shadow: 0px 4.01149px 15.0431px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
 }
-.menus article h3 {
+.menus .card:hover .checker {
+  right: 0;
+  transition: 0.5s ease-in-out;
+}
+.menus .card:hover .checker i {
+  animation: rotate 0.5s;
+  width: 100%;
+}
+.menus .card:hover article {
+  width: 100%;
+  transition: 0.5s ease-in-out;
+}
+.menus .card:hover .price {
+  transform: translateX(-64px);
+  right: -25px;
+  transition: 0.5s ease-in-out;
+  position: relative;
+}
+.menus article {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.menus article .checker {
+  display: none;
+  position: absolute;
+  background: #99e2d0;
+  border-radius: 0 15px 15px 0;
+  right: -84px;
+  padding: 0 13px;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menus article .checker i {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+h3 {
   font-weight: 500;
   font-size: 18px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.menus div {
+
+.price_acomp {
   justify-content: space-between;
   display: flex;
   flex-direction: row;
+  transition: 1s ease-in-out;
 }
-.menus div p {
+
+p {
   font-weight: 300;
   font-size: 15px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.menus div .price {
+
+.price {
   font-weight: 700;
+  overflow: visible;
 }
 
 .btn {
@@ -396,8 +465,8 @@ footer .fa-handshake {
 
 .anim_heart:active .heart-after {
   position: absolute;
-  background: -webkit-linear-gradient(200.64deg, #9356dc -5.2%, #ff79da 110.74%);
-  background: linear-gradient(to top, 200.64deg, #9356dc -5.2%, #ff79da 110.74%);
+  background: -webkit-linear-gradient(#9356dc -5.2%, #ff79da 110.74%);
+  background: linear-gradient(to top, #9356dc -5.2%, #ff79da 110.74%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -414,7 +483,7 @@ footer .fa-handshake {
   font-size: 21px;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  background: -webkit-linear-gradient(200.64deg, #9356dc -5.2%, #ff79da 110.74%);
+  background: -webkit-linear-gradient(#9356dc -5.2%, #ff79da 110.74%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -422,8 +491,8 @@ footer .fa-handshake {
 }
 
 .anim_heart:hover .heart-after {
-  background: -webkit-linear-gradient(200.64deg, #9356dc -5.2%, #ff79da 110.74%);
-  background: linear-gradient(to top, 200.64deg, #9356dc -5.2%, #ff79da 110.74%);
+  background: -webkit-linear-gradient(#9356dc -5.2%, #ff79da 110.74%);
+  background: linear-gradient(to top, #9356dc -5.2%, #ff79da 110.74%);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -438,17 +507,112 @@ footer .fa-handshake {
   body {
     height: 1312px;
   }
-  .explorer {
-    padding: initial;
+  .restaurants section {
+    justify-content: center;
   }
-  .explorer h2 {
-    margin: 18px;
+}
+@media screen and (min-width: 1010px) {
+  .explorer {
+    gap: 18px;
+    padding: 30px 0px 30px 0px;
+  }
+  .explorer p {
+    margin-bottom: initial;
   }
   .btn-explorer {
-    margin-bottom: 30px;
+    margin-bottom: initial;
   }
-  .fonctionnement ul {
+  .restaurants {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .restaurants .bloc-containt-restau {
     width: 70%;
+  }
+  .restaurants .les-menus {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .restaurants article {
+    width: 100%;
+    max-width: 490px;
+  }
+  .restaurants h2 {
+    margin: 54px 0px 38px 0px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .under-header h2 {
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 18px;
+  }
+  .fonctionnement {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0px;
+  }
+  .fonctionnement .bloc-containt-fonc {
+    width: 70%;
+  }
+  .fonctionnement .bloc-fonctionnement {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+  }
+  .fonctionnement .selecteur-pos-color {
+    width: 100%;
+    padding: 0px 50px;
+  }
+  .fonctionnement .selecteur-pos-color .description-fonctionnement {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .fonctionnement h2 {
+    padding-left: 0px;
+  }
+  footer {
+    flex-direction: row;
+    padding: 57px 10px 30px 24px;
+    justify-content: flex-end;
+    gap: 70px;
+  }
+  footer h3 {
+    order: 2;
+    margin-bottom: initial;
+    width: 9%;
+  }
+  footer .bas-page {
+    flex-direction: row;
+    gap: 20px;
+  }
+  header .return {
+    left: 10px;
+    transform: initial;
+  }
+  img {
+    height: 40%;
+    object-fit: cover;
+  }
+  .presentation-menu {
+    align-items: center;
+    width: 80%;
+    align-self: center;
+  }
+  .presentation-menu h2 {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .presentation-menu .header-menue {
+    gap: 18px;
+  }
+  .presentation-menu .menus {
+    width: 65%;
   }
 }
 

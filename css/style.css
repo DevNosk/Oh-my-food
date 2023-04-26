@@ -477,7 +477,15 @@ footer .fa-handshake {
   gap: 12px;
   padding: 0 13px;
   position: relative;
+}
+.menus .anim-entrer {
   animation: MoveToLeft 1.4s ease-in-out forwards;
+}
+.menus .anim-plat {
+  animation: MoveToLeft 1.8s ease-in-out forwards;
+}
+.menus .anim-dessert {
+  animation: MoveToLeft 2.2s ease-in-out forwards;
 }
 .menus .card {
   position: relative;
@@ -732,9 +740,10 @@ p {
     left: 10px;
     transform: initial;
   }
-  img {
+  .banner-menu {
     height: 40%;
     object-fit: cover;
+    min-height: 40%;
   }
   .presentation-menu {
     align-items: center;

@@ -536,9 +536,19 @@ footer {
     flex-direction: column;
     gap: 12px;
     padding: 0 13px;
-    position: relative;
+		position: relative; 
+	}
+	.anim-entrer{
     animation: MoveToLeft 1.4s ease-in-out forwards;
 	}
+	.anim-plat{
+		animation: MoveToLeft 1.8s ease-in-out forwards;
+	}
+
+	.anim-dessert{
+		animation: MoveToLeft 2.2s ease-in-out forwards;
+	}
+	
 
 	.card {
 		position: relative;
@@ -851,9 +861,10 @@ p {
 		}
 	}
 
-	img {
+	.banner-menu {
 		height: 40%;
 		object-fit: cover;
+		min-height: 40%;
 	}
 
 	.presentation-menu {
